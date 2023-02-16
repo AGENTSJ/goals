@@ -1,7 +1,6 @@
 const express = require('express');
-const path= require('path')
-const connectdb =require('./db/db')
-const goal = require('./db/model/goalmodel');
+// const path= require('path')
+const connectdb =require('./db/db');
 const app = express();
 
 //template setting
@@ -24,17 +23,15 @@ try{
 
 
 
-   ////////////////////////routes///////////////////////
 
 
-app.get('/',(req,res)=>{
-    res.render('home.pug' ,{heading:"no goals to display",obj:{title:'',time:'',desc:''}})
-})
-app.post('/add',(req,res)=>{
-    
-    
-    
-})
+
+app.use('/',require('./routes/static/static'))
+app.use('/userlogin',require('./routes/credential/userlogin'));
+app.use('/createuser',require('./routes/credential/createuser'));
+app.use('/test',require('./routes/functionalities/test'))
+
+
 app.listen(80,()=>{
     console.log("http://localhost/");
 })

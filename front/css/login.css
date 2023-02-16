@@ -1,0 +1,14 @@
+html{
+    height: 100%;
+}
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+form{
+    width: 800px;
+}
