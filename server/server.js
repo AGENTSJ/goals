@@ -1,14 +1,13 @@
 const express = require('express');
-// const path= require('path')
+const cors = require('cors');
 const connectdb =require('./db/db');
 const app = express();
-
 //template setting
 app.set('view engine','pug');
 app.set('views','C:/Users/abhij/Desktop/works/webdevelopment/workbuffer/GOALS/front/html');
 
 app.use(express.urlencoded())
-
+app.use(cors())
 app.use(express.static('assets'))
 
 //db
@@ -33,5 +32,5 @@ app.use('/test',require('./routes/functionalities/test'))
 
 
 app.listen(80,()=>{
-    console.log("http://localhost/");
+    console.log("http://127.0.0.1/");
 })
