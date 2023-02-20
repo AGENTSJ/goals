@@ -1,31 +1,24 @@
-const acc = document.getElementById('acc');
-acc.addEventListener('mouseover',acpresent);
-acc.addEventListener('mouseout',acabsent);
+const menuicon = document.getElementById('menu').addEventListener('click',()=>{
+    menudisplay('menucont');
+});
+const proicon = document.getElementById('acc').addEventListener('click',()=>{
+    menudisplay('accnt');
+})
 
-const menu = document.getElementById('menu');
-menu.addEventListener('mouseover',mpresent);
-menu.addEventListener('mouseout',mabsent);
 
-function acpresent(){
-     let temp = document.getElementById('accnt')
-    temp.style['display']='block';
-    temp.style['height']='200px';
-    
+
+
+
+function menudisplay(id){
+
+    let cont = document.getElementById(id);
+    const st = window.getComputedStyle(cont)
+    if(st.height=='0px'){
+        
+        cont.style['height']='fit-content';
+   }else{
+    cont.style['height']='0px'
+   }
+
+
 }
-function acabsent(){
-    const temp = document.getElementById('accnt')
-    temp.style['display']='block';
-    temp.style['height']='0px';
-    
-}
-
-function mpresent(){
-    const temp = document.getElementById('menucont');
-    temp.style['height']='300px'
-}
-
-function mabsent(){
-    const temp = document.getElementById('menucont');
-    temp.style['height']='0px'
-}
-

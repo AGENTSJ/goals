@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt')
 
 let jwt_secret = "settinggoalsarefuniffollowedthrouh";
-router.get('/',
+router.post('/',
 [body('email').isEmail(),body('password').isLength({min:6})]
 ,async(req,res)=>{
     let valid = validationResult(req);
@@ -26,7 +26,7 @@ router.get('/',
                     res.send(auth_token);
                 }
             }else{
-                res.send('user not found');
+                res.status(401).send('user not found');
             }
         }catch(e){
             res.status(401).send(`internal server error try again`);
